@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the OWASP Top 10 Vulnerability App!</h1>
+    <p>Select a vulnerability to explore:</p>
+    <ul>
+        <li><a href="/vulnerable_sql">SQL Injection</a></li>
+        <li><a href="/login">Broken Authentication</a></li>
+        <li><a href="/expose_sensitive_data">Sensitive Data Exposure</a></li>
+        <li><a href="/vulnerable_xml">XXE</a></li>
+        <li><a href="/admin">Broken Access Control</a></li>
+        <li><a href="/debug">Security Misconfiguration</a></li>
+        <li><a href="/xss?input=<script>alert('XSS');</script>">XSS</a></li>
+        <li><a href="/deserialize">Insecure Deserialization</a></li>
+        <li><a href="/outdated_library">Outdated Library</a></li>
+        <li><a href="/no_logging">No Logging</a></li>
+    </ul>
+</body>
+</html>

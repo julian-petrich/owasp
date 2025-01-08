@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page_title }}</title>
+</head>
+<body>
+    <h1>{{ page_heading }}</h1>
+    <form action="{{ form_action }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        {% if show_password_field %}
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+        {% endif %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
