@@ -25,19 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 3: Run SAST using Semgrep
-      semgrep:
-        name: semgrep/ci
-        runs-on: ubuntu-20.04
-        env:
-          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
-        container:
-          image: semgrep/semgrep
-        if: (github.actor != 'dependabot[bot]')
-        steps:
-          - uses: actions/checkout@v4
-          - run: semgrep ci
-
       # Step 4: Run Tests
       - name: Run Tests
         run: python -m unittest discover
@@ -49,6 +36,18 @@ jobs:
           app-name: PythonTestApp
           slot-name: production
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
+  semgrep:
+    name: semgrep/ci
+    runs-on: ubuntu-20.04
+    env:
+      SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+    container:
+      image: semgrep/semgrep
+    if: (github.actor != 'dependabot[bot]')
+    steps:
+      - uses: actions/checkout@v4
+      - run: semgrep ci
 
   dast:
     runs-on: ubuntu-latest
