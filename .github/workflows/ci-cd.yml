@@ -62,15 +62,15 @@ jobs:
 
       - name: Run OWASP ZAP Full Scan
         run: |
-          docker run --user root -v $(pwd):/zap/wrk/ ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py \
+          docker run --user root -v $(pwd):/zap/wrk/ ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
             -t https://pythontestapp-cre6agcpddghczer.australiaeast-01.azurewebsites.net \
-            -r /zap/wrk/zap_report.html
+            -r /tmp/zap_report.html
 
       - name: Upload ZAP Report
         uses: actions/upload-artifact@v4
         with:
           name: zap-report
-          path: /tmp/zap_report.html
+          path: zap_report.html
   
   # dast:
   #   runs-on: ubuntu-latest
