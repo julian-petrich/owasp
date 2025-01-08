@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Semgrep with OWASP Top 10 Rules
-        run: semgrep --config "https://semgrep.dev/p/owasp-top-10"
+        run: semgrep --config "p/owasp-top-ten" --metrics=off
 
   dast:
     runs-on: ubuntu-latest
