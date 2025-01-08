@@ -48,8 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: semgrep ci
-    with:
-      config: "https://semgrep.dev/p/owasp-top-10"
+    config: "https://semgrep.dev/p/owasp-top-10"
 
   dast:
     runs-on: ubuntu-latest
